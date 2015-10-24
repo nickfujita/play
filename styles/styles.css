@@ -10,18 +10,26 @@ footer {
   position: fixed;
   bottom: 0;
   width: 100%;
+  z-index: 10;
 }
 
-.library {
+/*.library {
   max-height: 770px;
   overflow-y: scroll;
 }
 
 .queue {
   overflow-y: scroll; 
-}
+}*/
 
 .songCard {
+  /*overflow:hidden;*/
+  /*text-overflow:ellipsis;*/
+  /*white-space: nowrap;*/
+  font-size: .85em;
+}
+
+.queuedSong {
   /*overflow:hidden;*/
   /*text-overflow:ellipsis;*/
   /*white-space: nowrap;*/

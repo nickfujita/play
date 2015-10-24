@@ -1,8 +1,6 @@
 // AppView.js - Defines a backbone view class for the whole music app.
 var AppView = Backbone.View.extend({
 
-  className: 'container',
-
   initialize: function(params) {
     this.playerView = new PlayerView({model: this.model.get('currentSong')});
     this.songQueueView = new SongQueueView({collection: this.model.get('songQueue')});
@@ -35,15 +33,23 @@ var AppView = Backbone.View.extend({
 
     var library = $('<div class="library col m10 s12"></div>').append($('<h4>Library</h4>'),this.libraryView.$el);
     
-    var player = $('<footer class="page-footer white container"></footer>').append(this.playerView.$el);
+    var player = $('<footer class="page-footer white"></footer>').append(this.playerView.$el);
 
-    var queue = $('<div class="queue col m2 s12"></div>').append($('<h4>Playlist</h4>'),this.songQueueView.$el);
+    var queue = $('<div class="queue col m2 s12"></div>').append(this.songQueueView.$el);
+
+    // $('.collapsible').collapsible({accordion : false});
+    
+    // $('.collapsible').collapsible({
+    //   accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
+    // });
 
     //var playerQueue = $('<div class="playerQueue col m4 s12">').append(player,$('<h5>Playlist</h5>'),queue);
 
-    var row = $('<div class="row"></div>').append(player,queue,library);
+    var row = $('<div class="row container"></div>').append(queue,library,$('<a href="#" data-activates="slide-out" class="button-collapse">\
+                <i class="large mdi-navigation-menu"></i>\
+              </a>'));
 
-    return this.$el.html(row);
+    return this.$el.append(row,player);
   }
 
 });

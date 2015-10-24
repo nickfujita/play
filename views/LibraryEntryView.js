@@ -10,7 +10,7 @@ var LibraryEntryView = Backbone.View.extend({
   template: _.template('\
     <div class="card hoverable songCard">\
       <div class="card-image waves-effect waves-block waves-light">\
-        <img id="artwork" src=<%- artwork_url %>\
+        <img id="artwork" src="<%- artwork_url %>"\
       </div>\
       <div class="card-content">\
         <p class="truncate"><%- title %></p>\
