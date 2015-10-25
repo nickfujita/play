@@ -23,10 +23,16 @@ footer {
 }*/
 
 .songCard {
-  /*overflow:hidden;*/
-  /*text-overflow:ellipsis;*/
-  /*white-space: nowrap;*/
   font-size: .85em;
+/*  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;*/
+}
+
+.other {
+  display: block;
+  white-space: nowrap;
 }
 
 .queuedSong {
@@ -34,4 +40,9 @@ footer {
   /*text-overflow:ellipsis;*/
   /*white-space: nowrap;*/
   font-size: .85em;
+  margin-bottom: 0;
+}
+
+.closeIconBox {
+  padding: 0;
 }

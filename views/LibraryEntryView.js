@@ -3,9 +3,13 @@ var LibraryEntryView = Backbone.View.extend({
 
   tagName: 'div',
 
-  className: 'col s6 m4 l3',
+  className: 'col s12 m4 l3',
 
   // template: _.template('<td><%= artist %></td><td><%= title %></td>'),
+
+  initialize: function() {
+
+  },
 
   template: _.template('\
     <div class="card hoverable songCard">\
@@ -35,7 +39,9 @@ var LibraryEntryView = Backbone.View.extend({
   },
 
   render: function(){
-    return this.$el.html(this.template(this.model.attributes));
+    this.$el.append(this.template(this.model.attributes));
+
+    return this.el;
   }
 
 });

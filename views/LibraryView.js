@@ -8,6 +8,27 @@ var LibraryView = Backbone.View.extend({
   initialize: function() {
     this.render();
     this.listenTo(this.collection,'sync',this.render);
+    // this.listenTo(this, 'libraryRendered', function() {
+    //   $(".scroll_on_hover").mouseover(function() {
+    //     console.log('mouseover');
+    //     // debugger;
+    //     // $(this).removeClass("truncate");
+    //     // $(this).addClass("other");
+    //     var maxscroll = $(this).width();
+    //     var speed = maxscroll * 15;
+    //     $(this).animate({
+    //       scrollLeft: maxscroll
+    //     }, speed, "linear");
+    //   });
+    //   $(".scroll_on_hover").mouseout(function() {
+    //     $(this).stop();
+    //     // $(this).removeClass("other");
+    //     // $(this).addClass("truncate");
+    //     $(this).animate({
+    //       scrollLeft: 0
+    //     }, 'slow');
+    //   });
+    // });
   },
 
   render: function() {
@@ -22,6 +43,9 @@ var LibraryView = Backbone.View.extend({
         return new LibraryEntryView({model: song}).render();
       })
     );
+
+    // this.trigger('libraryRendered');
+
   }
 
-});
+  });

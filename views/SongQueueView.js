@@ -1,17 +1,17 @@
 // SongQueueView.js - Defines a backbone view class for the song queue.
 var SongQueueView = Backbone.View.extend({
 
-  // el: '<ul class="collapsible" data-collapsible="accordion"></ul>',
+  // el: '<ul class="collapsible side-nav" id="slide-out" data-collapsible="accordion"></ul>',
 
   tagName: 'ul',
 
-  className: 'collapsible side-nav full',
+  className: '',
 
-  id: 'slide-out',
+  // id: 'slide-out',
 
-  attributes: {
-    'data-collapsible': 'accordion'
-  },
+  // attributes: {
+  //   'data-collapsible': 'accordion'
+  // },
 
   initialize: function() {
     this.render();
@@ -25,13 +25,17 @@ var SongQueueView = Backbone.View.extend({
 
     this.$el.children().detach();
 
-    this.$el.append(
-      this.collection.map(function(song) {
-        return new SongQueueEntryView({model: song}).render();
-      })
-    );
+    this.collection.each(function(song) {
+        this.$el.prepend(new SongQueueEntryView({model: song}).render());
+    }.bind(this))
 
-    this.trigger('songQueueUpdated');
+    // this.$el.prepend(
+    //   this.collection.map(function(song) {
+    //     return new SongQueueEntryView({model: song}).render();
+    //   })
+    // );
+
+    // this.trigger('songQueueUpdated');
   }
 
 });

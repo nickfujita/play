@@ -31,11 +31,14 @@ var AppView = Backbone.View.extend({
 
   render: function() {
 
-    var library = $('<div class="library col m10 s12"></div>').append($('<h4>Library</h4>'),this.libraryView.$el);
+    var library = $('<div class="library col s12"></div>').append($('<h4>Library</h4>'),this.libraryView.$el);
     
-    var player = $('<footer class="page-footer white"></footer>').append(this.playerView.$el);
+    var queue = $('<div class="queue container"></div>').append(this.songQueueView.$el);
 
-    var queue = $('<div class="queue col m2 s12"></div>').append(this.songQueueView.$el);
+    var footer = $('<footer class="page-footer white"></footer>')
+
+    footer.append(queue)
+    footer.append(this.playerView.$el);
 
     // $('.collapsible').collapsible({accordion : false});
     
@@ -45,11 +48,9 @@ var AppView = Backbone.View.extend({
 
     //var playerQueue = $('<div class="playerQueue col m4 s12">').append(player,$('<h5>Playlist</h5>'),queue);
 
-    var row = $('<div class="row container"></div>').append(queue,library,$('<a href="#" data-activates="slide-out" class="button-collapse">\
-                <i class="large mdi-navigation-menu"></i>\
-              </a>'));
+    var row = $('<div class="row container"></div>').append(library);
 
-    return this.$el.append(row,player);
+    return this.$el.append(row,footer);
   }
 
 });
